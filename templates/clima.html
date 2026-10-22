@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima em {{ cidade }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+
+<body class="tema-{{ tema }}">
+    <main>
+        <p class="cidade">{{ cidade }}</p>
+
+        <div class="principal">
+            <p class="temperatura">{{ temperatura }}<span>&deg;C</span></p>
+            <img src="https://openweathermap.org/img/wn/{{ icone }}@2x.png"
+                 alt="" width="100" height="100">
+        </div>
+
+        <p class="descricao">{{ descricao }}</p>
+
+        <dl class="detalhes">
+            <div><dt>Sensação</dt><dd>{{ sensacao }}&deg;C</dd></div>
+            <div><dt>Umidade</dt><dd>{{ umidade }}%</dd></div>
+            <div><dt>Vento</dt><dd>{{ vento }} km/h</dd></div>
+        </dl>
+
+        <form class="busca" action="/clima">
+            <input type="text" name="cidade" placeholder="Buscar outra cidade"
+                   aria-label="Nome da cidade" required>
+            <button type="submit">Ver clima</button>
+        </form>
+    </main>
+</body>
+</html>

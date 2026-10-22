@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubra o Clima</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+
+<body class="tema-neutro">
+    <main>
+        <h1>Descubra o clima</h1>
+        <p class="subtitulo">Digite uma cidade e veja como está o tempo agora.</p>
+
+        <form class="busca" action="/clima">
+            <input type="text" name="cidade" placeholder="Ex.: Campina Grande"
+                   aria-label="Nome da cidade" required autofocus>
+            <button type="submit">Ver clima</button>
+        </form>
+
+        {% if erro %}
+            <p class="erro" role="alert">{{ erro }}</p>
+        {% endif %}
+    </main>
+</body>
+</html>
